@@ -15,3 +15,5 @@ __pycache__
 /styles.csv.bak
 /webui-user.bat
 /interrogate
+.idea/
+*.iml
