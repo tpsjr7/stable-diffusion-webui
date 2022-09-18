@@ -4,6 +4,7 @@ __pycache__
 /venv
 /tmp
 /model.ckpt
+/models/*.ckpt
 /GFPGANv1.3.pth
 /ui-config.json
 /outputs
@@ -14,6 +15,8 @@ __pycache__
 /styles.csv
 /styles.csv.bak
 /webui-user.bat
+/webui-user.sh
 /interrogate
 .idea/
 *.iml
+/user.css
