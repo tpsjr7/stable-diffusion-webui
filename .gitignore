@@ -6,6 +6,7 @@ __pycache__
 /model.ckpt
 /models/*.ckpt
 /GFPGANv1.3.pth
+/gfpgan/weights/*.pth
 /ui-config.json
 /outputs
 /config.json
@@ -20,3 +21,4 @@ __pycache__
 .idea/
 *.iml
 /user.css
+/.idea
