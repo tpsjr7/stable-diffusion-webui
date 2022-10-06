@@ -35,6 +35,8 @@ class Script(scripts.Script):
         else:
             lines = [x.strip() for x in data.decode('utf8', errors='ignore').split("\n")]
         lines = [x for x in lines if len(x) > 0]
+        negatives = [ (x.split('###')[1:] or [''])[0].strip() for x in lines]
+        lines = [ x.split('###')[0].strip() for x in lines]
 
         img_count = len(lines) * p.n_iter
         batch_count = math.ceil(img_count / p.batch_size)
@@ -49,6 +51,8 @@ class Script(scripts.Script):
         for loop_no in range(loop_count):
             state.job = f"{loop_no + 1} out of {loop_count}"
             p.prompt = lines[loop_no*p.batch_size:(loop_no+1)*p.batch_size] * p.n_iter
+            p.negative_prompt = negatives[loop_no]
+            print("prompt: " + p.negative_prompt)
             proc = process_images(p)
             images += proc.images
 

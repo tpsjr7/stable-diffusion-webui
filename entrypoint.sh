@@ -1,7 +1,7 @@
 #!/bin/bash
 
 cd /app
-
+mkdir -p ./embeddings
 
 if ! conda env list | grep automatic ; then
     conda env create -f environment-wsl2.yaml
@@ -15,7 +15,7 @@ if ! conda env list | grep automatic ; then
     git clone https://github.com/sczhou/CodeFormer.git repositories/CodeFormer
     git clone https://github.com/salesforce/BLIP.git repositories/BLIP
 
-    pip install opencv-python-headless==:4.1.2.30
+    pip install opencv-python-headless==4.1.2.30
     # install requirements of Stable Diffusion
     pip install transformers==4.19.2 diffusers invisible-watermark --prefer-binary
 
@@ -59,4 +59,4 @@ function validateDownloadModel() {
 validateDownloadModel model.ckpt ./ https://www.googleapis.com/storage/v1/b/aai-blog-files/o/sd-v1-4.ckpt?alt=media fe4efff1e174c627256e44ec2991ba279b3816e364b49f9be2abc0b3ff3f8556
 validateDownloadModel GFPGANv1.3.pth ./ https://github.com/TencentARC/GFPGAN/releases/download/v1.3.0/GFPGANv1.3.pth c953a88f2727c85c3d9ae72e2bd4846bbaf59fe6972ad94130e23e7017524a70
 
-python webui.py --listen
+python launch.py --listen --share

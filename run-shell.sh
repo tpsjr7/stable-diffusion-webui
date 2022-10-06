@@ -2,7 +2,7 @@
 
 cd "$(dirname $0)"
 
-sudo docker run -it --rm --gpus all \
+docker run -it --rm --gpus all \
   -v $(pwd):/app \
   -v automatic-sdwui-root-profile:/root \
   -v automatic-sdwui-conda:/opt/conda/envs \
